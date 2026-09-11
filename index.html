@@ -9,17 +9,42 @@
             font-family: system-ui, sans-serif;
             color:#276a9e;
             background-color: #bdd8ed;
-        }
-        .container {
-            display: block;
-            background-color:#8dbee3;
+            text-transform: lowercase;
 
-            border: 1px solid #3591d7;
-            padding-left: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            background-color:#8dbee3;
+            border: 1px solid #86bce6;
+
+            padding-left: 20px;
+            padding-bottom: 20px;
             margin: 10px;
             border-radius: 15px;
             width: 400px;
+
+            box-shadow:
+                2px 5px 20px rgb(174, 193, 225),
+                -3px -11px 7px #86bce6 inset;
         }
+
+        /* fix the fade in of all containers 1 by 1 */
+
+        /* @keyframes fade-in {
+            0%,
+            20% {
+                opacity: 0;
+                transform: translateY(6px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        } */
     </style>
 </head>
 <body>
@@ -36,12 +61,13 @@
         <ul>
             <li><a href="reading1.html">Why Restaurant Websites Are So Good</a></li>
             <li><a href="reading2.html">The New Turing Test</a></li>
+            <li><a href ="reading3.html">My website is a shifting house...</a></li>
         </ul>
     </div>
     <div class="container">
         <h2>Projects</h2>
         <ul>
-            <li><a href="project1/index.html">P1. Restarant Menu Variations</a></li>
+            <li><a href="project1/index.html">P1. Restaurant Menu Variations</a></li>
             <li>P2. Book to Website</li>
             <li>P3. Standby Mode</li>
         </ul>
