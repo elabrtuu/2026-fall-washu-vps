@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>12</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Goudy+Bookletter+1911&display=swap" rel="stylesheet">
     <style>
         /* custom font: */
         @font-face {
@@ -16,9 +19,8 @@
         body {
             font-family: "Goudy Bookletter 1911", sans-serif;
             color:#1d1106;
-            background-color: #1d1106;
+            background-color: #c0d9ed;
             text-align: center;
-
         }
 
         h1 {
@@ -36,21 +38,38 @@
         }
 
         #info {
-            color: #f4cd88;
-            padding: 20px;
+            color: #1d1106;
+            /* padding: 20px; */
         }
 
         .items {
-            display: block;
-            border: 4px solid rgb(238, 204, 119);
-            border-radius: 300px;
-            background-color: #f4cd88;
-            padding: 20px 40px auto;
-            margin: 20px auto;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            width: min(85vw, 470px);
+            border: 4px solid rgb(236, 215, 161);
+            border-radius: 110px;
+            background-color: #f0dab3;
+            padding: 120px 45px;
+            margin: 40px auto;
+            font-size: 16px;
 
             box-shadow:
-                2px 5px 20px rgb(233, 196, 104),
-                -3px -3px 3px rgb(238, 204, 119) inset;
+                2px 5px 3px rgb(231, 207, 147),
+                -3px -3px 3px rgb(237, 219, 174) inset;
+        }
+
+        .items p {
+            margin: 0;
+        }
+
+        .items h2 {
+            font-size: 28px;
+            letter-spacing: 6px;
+            margin: 0 0 8px;
         }
 
         /* for phone screens */
@@ -70,9 +89,18 @@
             }
 
             .items {
-                border-radius: 30px;
-                padding: 20px;
-                margin: 20px 10px;
+                width: min(88vw, 345px);
+                border-radius: 82px;
+                padding: 92px 24px;
+                margin: 20px auto;
+                gap: 4px;
+                font-size: 14px;
+            }
+
+            .items h2 {
+                font-size: 22px;
+                letter-spacing: 4px;
+                margin: 0 0 6px;
             }
         }
     </style>
