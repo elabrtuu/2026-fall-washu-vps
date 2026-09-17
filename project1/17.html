@@ -7,10 +7,129 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>17</title>
     <style>
+        body {
+            font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            color: #482a0d;
+            background-color: #fff9f1;
+            text-transform: lowercase;
+            text-align: center;
+        }
+
+        h2 {
+            color: #1a0e03;
+        }
+
+        .bubble {
+            display: block;
+            border: 4px double #f3c9a0;
+            border-radius: 30px;
+            background-color: #fdecd8;
+            padding: 20px 30px;
+            margin: 20px auto;
+            max-width: 500px;
+
+            opacity: 0;
+            animation: fade-in 0.6s ease forwards;
+        }
+
+        /* fade in animation */
+        .bubble:nth-of-type(1) { animation-delay: 0.02s; }
+        .bubble:nth-of-type(2) { animation-delay: 0.14s; }
+        .bubble:nth-of-type(3) { animation-delay: 0.26s; }
+        .bubble:nth-of-type(4) { animation-delay: 0.38s; }
+
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .bubble:hover {
+            /* add hover effect */
+        }
+
 
     </style>
 </head>
 <body>
-    
+    <h1>Barrio <sub>menu</sub></h1>
+
+    <div class="bubble">
+        <p>740 DeMun Avenue | Clayton, MO 63105 | <em>314 725 0322</em></p>
+        <p>Proudly serving local food that is <em>pasture raised</em>, with <em>no added hormones</em> and <em>no unnecessary antibiotics</em></p>
+        <p>Call ahead or order online at<br>
+        <em>barrioburgersandtacos.com</em></p>
+    </div>
+
+    <div class="bubble">
+        <h2><sup>our</sup> Burgers</h2>
+
+        <p><em>lettuce, tomato, onion &amp; pickles available upon request</em></p>
+
+        <p><strong>Burger</strong> | <em>7.99</em> | <em>double +5.00, triple +9.00</em></p>
+
+        <p><strong>Turkey Burger</strong> | <em>7.99</em></p>
+
+        <p><strong>Outlaw Burger</strong> | <em>11.99</em></p>
+        <p>topped with bbq sauce, cheddar cheese bacon &amp; an onion ring</p>
+
+        <p><strong>Killer B's Burger</strong> | <em>single 20.99, double 25.99</em></p>
+        <p>1/4 beef patty topped with bacon, brisket, mozzarella and our housemade bbq sauce</p>
+
+        <p><strong>Taco Burger</strong> | <em>11.99</em></p>
+        <p>topped with lettuce, pico de gallo, mexican cheese blend &amp; tortilla strips</p>
+
+        <p>Burger Add-Ons <em>ranging from 1.00 to 1.50</em> | <em>american cheese</em>, <em>mushrooms</em>, <em>ranch</em>, <em>jalapenos</em>, <em>cheddar</em>, <em>mozzarella</em>, <em>pepper jack</em>, <em>swiss</em>, <em>bacon</em></p>
+
+    </div>
+
+    <div class="bubble">
+        <h2><sup>our</sup> Sandwiches</h2>
+
+        <p><strong>BLT</strong> | <em>11.99</em></p>
+        <p>with carmelized apple mayo on sourdough</p>
+
+        <p><strong>Smoked BBQ Brisket</strong> | <em>17.99</em></p>
+        <p>housemade bbq sauce on potato bun</p>
+
+        <p><strong>Brisket Dip</strong> | <em>19.99</em></p>
+        <p>smoked brisket with Swiss on a french hoagie bun and au jus</p>
+
+        <p><strong>Chicken Parm</strong> | <em>13.99</em></p>
+        <p>fried chicken breast, mozarella, marinara, basil, and parmesan on a french hoagie bun</p>
+
+        <p><strong>Spicy Fried Chicken</strong> | <em>11.99</em></p>
+        <p>panko breaded with cajun aioli on potato bun</p>
+
+        <p><strong>Grilled Cheese</strong> | <em>6.99</em></p>
+        <p>american on sourdough</p>
+
+        <p><strong>Smoked Turkey Breast</strong> | <em>12.99</em></p>
+        <p>turkey breast on sourdough with mayo, lettuce, tomato, onions & swiss cheese served hot</p>
+
+        <p><strong>Fish Sandwich</strong> | <em>11.99</em></p>
+        <p>tempura battered alaskan cod on a potato bun with tartar sauce</p>
+
+        <p><strong>Chicken Salad Sandwich</strong> | <em>11.99</em></p>
+        <p>chicken, pickles, mayo, jalapeño, cilantro, dijon mustard & red onions served on sourdough toast</p>
+
+        <p><strong>Chili Dog</strong> | <em>11.99</em></p>
+        <p>gourmet frank topped with chili & cheese</p>
+
+        <p><strong>Harvest Shreds BBQ Sandwich</strong> | <em>12.99</em></p>
+        <p>harvest shreds umami based protein, barrio bbq sauce, potato bun</p>
+    </div>
+
+    <div class="bubble">
+        <h2><sup>our</sup> Barrio Bowls</h2>
+
+        <p><strong>Quinoa Bowl</strong> | <em>8.99</em> | <em>add asada 8.00, birria 8.00, chicken 5.00, chorizo 5.00, ground turkey 6.00, harvest shreds 7.00, hot dog 5.00</em></p>
+        <p><strong>Mac and Cheese</strong> | <em>bowl 7.99, cup 4.99</em></p>
+    </div>
 </body>
 </html>
