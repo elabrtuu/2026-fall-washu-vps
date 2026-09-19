@@ -6,125 +6,150 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>18</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Goudy+Bookletter+1911&family=League+Script&display=swap" rel="stylesheet">
     <style>
+         /* custom font: */
+        .league-script-regular {
+            font-family: "League Script", cursive;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+         @font-face {
+            font-family: 'Bodoni 72';
+            src: url("/System/Library/Fonts/Supplemental/Bodoni 72.ttc") format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        h1, h2 {
+            font-family: "League Script";
+            font-size: 40px;
+        }
+
+
         body {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            max-width: 1100px;
+            font-family: 'Bodoni 72', serif;
+            color: rgb(213, 111, 206);
+            max-width: 600px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 40px 20px;
+            text-align: center;
+            background: linear-gradient(#feddfc, #e6d9fa, #fff6cc);
         }
 
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            align-items: start;
+        img {
+            display: block;
+            max-width: 100%;
+            margin: 30px auto;
+            border-radius: 12px;
         }
 
-        .menu-grid > div {
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            padding: 20px;
+        dt {
+            margin-top: 20px;
+        }
+
+        dd {
+            margin: 0;
+        }
+
+        .price {
+            font-family: "League Script", cursive;
+            font-size: 1.2em;
         }
     </style>
 </head>
 <body>
     <h1>Welcome to Barrio!</h1>
 
+    <img src="../barrio outside2.jpg" alt="Barrio's patio on a sunny day with blue umbrellas and pink flowers">
+
     <p><em><strong>Good to know...</strong></em></p>
 
-    <blockquote>
-        <ul>
-            <li>740 DeMun Avenue, Clayton, MO 63105</li>
-            <li>Call us at 314 725 0322 or order online at barrioburgersandtacos.com</li>
-            <li>Proudly serving local food that is pasture raised, with no added hormones and no unnecessary antibiotics</li>
-        </ul>
-    </blockquote>
-
-    <hr>
-
-    <div class="menu-grid">
+    <p>740 DeMun Avenue, Clayton, MO 63105</p>
+    <p>Call us at 314 725 0322 or order online at barrioburgersandtacos.com</p>
+    <p>Proudly serving local food that is pasture raised, with no added hormones and no unnecessary antibiotics</p>
 
     <div>
-    <h2>Our Burgers</h2>
+    <h2>Burgers</h2>
 
         <p>Lettuce, tomato, onion &amp; pickles are all available upon request...</p>
 
         <dl>
-            <dt>Burger</dt>
-            <dd>7.99 | double +5.00, triple +9.00</dd>
+            <dt>Burger <span class="price">7.99</span></dt>
+            <dd>double <span class="price">+5.00</span>, triple <span class="price">+9.00</span></dd>
 
-            <dt>Turkey Burger</dt>
-            <dd>7.99</dd>
+            <dt>Turkey Burger <span class="price">7.99</span></dt>
 
-            <dt>Outlaw Burger</dt>
-            <dd>11.99 | topped with bbq sauce, cheddar cheese bacon &amp; an onion ring</dd>
+            <dt>Outlaw Burger <span class="price">11.99</span></dt>
+            <dd>topped with bbq sauce, cheddar cheese bacon &amp; an onion ring</dd>
 
-            <dt>Killer B's Burger</dt>
-            <dd>single 20.99, double 25.99 | 1/4 beef patty topped with bacon, brisket, mozzarella and our housemade bbq sauce</dd>
+            <dt>Killer B's Burger <span class="price">single 20.99, double 25.99</span></dt>
+            <dd>1/4 beef patty topped with bacon, brisket, mozzarella and our housemade bbq sauce</dd>
 
-            <dt>Taco Burger</dt>
-            <dd>11.99 | topped with lettuce, pico de gallo, mexican cheese blend &amp; tortilla strips</dd>
+            <dt>Taco Burger <span class="price">11.99</span></dt>
+            <dd>topped with lettuce, pico de gallo, mexican cheese blend &amp; tortilla strips</dd>
         </dl>
 
         <p>Burger Add-Ons range from...</p>
-        <ul>
-            <li>1.00 | american cheese, mushrooms, ranch, jalapenos</li>
-            <li>1.50 | cheddar, mozzarella, pepper jack, swiss, bacon</li>
-        </ul>
+        <p><span class="price">1.00</span> | american cheese, mushrooms, ranch, jalapenos</p>
+        <p><span class="price">1.50</span> | cheddar, mozzarella, pepper jack, swiss, bacon</p>
     </div>
 
     <div>
-    <h2>Our Sandwiches</h2>
+    <h2>Sandwiches</h2>
 
         <dl>
-            <dt>BLT</dt>
-            <dd>11.99 | with carmelized apple mayo on sourdough</dd>
+            <dt>BLT <span class="price">11.99</span></dt>
+            <dd>with carmelized apple mayo on sourdough</dd>
 
-            <dt>Smoked BBQ Brisket</dt>
-            <dd>17.99 | housemade bbq sauce on potato bun</dd>
+            <dt>Smoked BBQ Brisket <span class="price">17.99</span></dt>
+            <dd>housemade bbq sauce on potato bun</dd>
 
-            <dt>Brisket Dip</dt>
-            <dd>19.99 | smoked brisket with Swiss on a french hoagie bun and au jus</dd>
+            <dt>Brisket Dip <span class="price">19.99</span></dt>
+            <dd>smoked brisket with Swiss on a french hoagie bun and au jus</dd>
 
-            <dt>Chicken Parm</dt>
-            <dd>13.99 | fried chicken breast, mozarella, marinara, basil, and parmesan on a french hoagie bun</dd>
+            <dt>Chicken Parm <span class="price">13.99</span></dt>
+            <dd>fried chicken breast, mozarella, marinara, basil, and parmesan on a french hoagie bun</dd>
 
-            <dt>Spicy Fried Chicken</dt>
-            <dd>11.99 | panko breaded with cajun aioli on potato bun</dd>
+            <dt>Spicy Fried Chicken <span class="price">11.99</span></dt>
+            <dd>panko breaded with cajun aioli on potato bun</dd>
 
-            <dt>Grilled Cheese</dt>
-            <dd>6.99 | american on sourdough</dd>
+            <dt>Grilled Cheese <span class="price">6.99</span></dt>
+            <dd>american on sourdough</dd>
 
-            <dt>Smoked Turkey Breast</dt>
-            <dd>12.99 | turkey breast on sourdough with mayo, lettuce, tomato, onions &amp; swiss cheese served hot</dd>
+            <dt>Smoked Turkey Breast <span class="price">12.99</span></dt>
+            <dd>turkey breast on sourdough with mayo, lettuce, tomato, onions &amp; swiss cheese served hot</dd>
 
-            <dt>Fish Sandwich</dt>
-            <dd>11.99 | tempura battered alaskan cod on a potato bun with tartar sauce</dd>
+            <dt>Fish Sandwich <span class="price">11.99</span></dt>
+            <dd>tempura battered alaskan cod on a potato bun with tartar sauce</dd>
 
-            <dt>Chicken Salad Sandwich</dt>
-            <dd>11.99 | chicken, pickles, mayo, jalape&ntilde;o, cilantro, dijon mustard &amp; red onions served on sourdough toast</dd>
+            <dt>Chicken Salad Sandwich <span class="price">11.99</span></dt>
+            <dd>chicken, pickles, mayo, jalape&ntilde;o, cilantro, dijon mustard &amp; red onions served on sourdough toast</dd>
 
-            <dt>Chili Dog</dt>
-            <dd>11.99 | gourmet frank topped with chili &amp; cheese</dd>
+            <dt>Chili Dog <span class="price">11.99</span></dt>
+            <dd>gourmet frank topped with chili &amp; cheese</dd>
 
-            <dt>Harvest Shreds BBQ Sandwich</dt>
-            <dd>12.99 | harvest shreds umami based protein, barrio bbq sauce, potato bun</dd>
+            <dt>Harvest Shreds BBQ Sandwich <span class="price">12.99</span></dt>
+            <dd>harvest shreds umami based protein, barrio bbq sauce, potato bun</dd>
         </dl>
     </div>
 
     <div>
-    <h2>Our Barrio Bowls</h2>
+    <h2>Barrio Bowls</h2>
 
         <dl>
-            <dt>Quinoa Bowl</dt>
-            <dd>8.99 | add asada 8.00, birria 8.00, chicken 5.00, chorizo 5.00, ground turkey 6.00, harvest shreds 7.00, hot dog 5.00</dd>
+            <dt>Quinoa Bowl <span class="price">8.99</span></dt>
+            <dd>add asada <span class="price">8.00</span>, birria <span class="price">8.00</span>, chicken <span class="price">5.00</span>, chorizo <span class="price">5.00</span>, ground turkey <span class="price">6.00</span>, harvest shreds <span class="price">7.00</span>, hot dog <span class="price">5.00</span></dd>
 
-            <dt>Mac and Cheese</dt>
-            <dd>bowl 7.99, cup 4.99 | add a protein to make an entree asada 8.00, birria 8.00, chicken 5.00, chorizo 5.00, ground beef 6.00, ground turkey 6.00, harvest shreds 7.00, hot dog 5.00</dd>
+            <dt>Mac and Cheese <span class="price">bowl 7.99, cup 4.99</span></dt>
+            <dd>add a protein to make an entree asada <span class="price">8.00</span>, birria <span class="price">8.00</span>, chicken <span class="price">5.00</span>, chorizo <span class="price">5.00</span>, ground beef <span class="price">6.00</span>, ground turkey <span class="price">6.00</span>, harvest shreds <span class="price">7.00</span>, hot dog <span class="price">5.00</span></dd>
         </dl>
     </div>
 
-    </div>
+    <img src="../barrio outside.jpg" alt="Barrio's corner patio glowing in the evening">
+
 </body>
 </html>
