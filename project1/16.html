@@ -6,6 +6,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>16</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Goudy+Bookletter+1911&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=League+Script&display=swap" rel="stylesheet">
     <style>
         /* custom font */
         @font-face {
@@ -15,14 +18,40 @@
             font-style: normal;
         }
 
+        /* embed code from google fonts */
+        .lato-regular {
+        font-family: "Lato", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        }
+
+        .lato-bold {
+        font-family: "Lato", sans-serif;
+        font-weight: 700;
+        font-style: normal;
+        }
+
+        .lato-regular-italic {
+        font-family: "Lato", sans-serif;
+        font-weight: 400;
+        font-style: italic;
+        }
+
+        .lato-bold-italic {
+        font-family: "Lato", sans-serif;
+        font-weight: 700;
+        font-style: italic;
+        }
+
+
         body {
             margin: 0;
-            background: #0e0303;
-            color: #ffffff;
+            background: linear-gradient(to bottom, #ffe8d6, #fcd5e5, #dcd0f5);
+            color: #5c4356;
         }
 
         #info {
-            font-family: 'DIN Condensed';
+            font-family: 'Lato';
             text-align: center;
 
         }
@@ -52,7 +81,7 @@
             content: "";
             flex: 1;
             height: 3px;
-            background: #ffffff;
+            background: #e3a8c4;
         }
 
         h2::before {
@@ -64,24 +93,24 @@
         }
 
         .items {
-            font-family: 'DIN Condensed';
+            font-family: 'Lato';
             text-align: center;
             letter-spacing: 2px;
             font-style: italic;
-            color: #ffffff;
+            color: #5c4356;
             padding: 20px 20px 60px;
         }
 
         .items strong {
-            font-family: 'DIN Condensed';
+            font-family: 'Lato';
             text-transform: uppercase;
             font-style: normal;
             letter-spacing: 4px;
-            color: #ffffff;
+            color: #3f2b3a;
         }
 
         .items em {
-            color: rgb(205, 63, 139);
+            color: #e3a8c4;
         }
     </style>
 </head>
