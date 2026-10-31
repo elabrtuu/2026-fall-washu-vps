@@ -7,13 +7,153 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    website as a SUITCASE:
+    <!-- website as a SUITCASE:
     - finite, self packed just for one trip
     - not doing too much maps onto packing light: a suitcase has limited space so everything in it was chosen on purpose
     - you pack a suitcase by hand one item at a time = writing each item into code manually
-    - suitcase packed once per trip = no need for apis --> for a collection you fill once and then close, otherwise would be overpacking
+    - suitcase packed once per trip = no need for apis for a collection you fill once and then close, otherwise would be overpacking
     - CSS Grid? is literally compartments, suitcase interior is a grid of pockets and dividers
-    - small amount of JS gives the latch, open/close, unzipping a pocket, flipping a tag 
+    - small amount of JS gives the latch, open/close, unzipping a pocket, flipping a tag  -->
+
+    <!-- LANDING PAGE -->
+     <div id="closed">
+        <div class="handle"></div>
+
+        <div class="shell">
+            <button class="latch latch-left">latch</button>
+            <button class="latch latch-right">latch</button>
+
+            <div class="tag">
+                <p>[insert shimmering point]</p>
+            </div>
+
+            <!-- luggage stickers -->
+            <a class="sticker">[insert shimmering point]</a>
+            <a class="sticker">[insert shimmering point]</a>
+            <a class="sticker">[insert shimmering point]</a>
+            <a class="sticker">[insert shimmering point]</a>
+            <a class="sticker">[insert shimmering point]</a>
+        </div>
+
+        <p class="hint">↑ click a latch to open the suitcase</p>
+     </div>
+
+    <!-- OPEN SUITCASE -->
+     <div id="open">
+        <button class="close-edge">↓ click an edge to close back up</button>
+
+        <!-- lid: -->
+        <div class="lid">
+            <p class="label">Lid pocket</p>
+
+            <div class="pocket">
+                <button class="item" data-item="bitez">
+                    <!-- [insert image here] -->
+                    <p>Bitez postcard</p>
+                </button>
+            </div>
+
+            <div class="pocket">
+                <button class="item" data-item="barrio">
+                    <!-- [insert image here] -->
+                    <p>Barrio menu (Zapfino)</p>
+                </button>
+            </div>
+        </div>
+
+        <!-- base: -->
+        <div class="base">
+            <div class="main-compartment">
+                <p class="label">Main compartment</p>
+
+                <button class="item" data-item="teoman">
+                    <!-- [insert image here] -->
+                    <p>Teoman - Headphones</p>
+                </button>
+
+                <button class="item" data-item="book">
+                    <!-- [insert image here] -->
+                    <p>The Subtle Art of Not Giving a F*ck (book)</p>
+                </button>
+            </div>
+
+            <div class="zip-pocket">
+                <p class="label">Zip pocket</p>
+ 
+                <button class="item" data-item="fortune">
+                    <!-- [insert image here] -->
+                    <p>Fortune slip</p>
+                </button>
+            </div>
+
+            <div class="padded-divider">
+                <p class="label">Padded divider</p>
+ 
+                <button class="item" data-item="soulages">
+                    <!-- [insert image here] -->
+                    <p>Soulages print</p>
+                </button>
+            </div>
+        </div>
+     </div>
+
+    <!-- CONTAINER -->
+     <div id="container">
+        <div class="card" id="bitez">
+            <p class="packed-in">Packed in: Lid pocket</p>
+
+            <button class="close">×</button>
+            <!-- [insert image here] -->
+            <h2>Bitez, Bodrum</h2>
+            <p>Bitez is a small town in Bodrum, Turkey, and it might just be my favorite place in the world. It reminds me of my family and summertime, and it has a really special place in my heart.</p>
+        </div>
+
+        <div class="card" id="barrio">
+            <p class="packed-in">Packed in: Lid pocket</p>
+
+            <button class="close">×</button>
+            <!-- [insert image here] -->
+            <h2>Zapfino, the scrapped Barrio menu font</h2>
+            <p>This font represents the splash of experimentation and creativity that I want to bring to my design work. I was really drawn to it when I was designing the Barrio menu.</p>
+        </div>
+
+        <div class="card" id="teoman">
+            <p class="packed-in">Packed in: Main compartment</p>
+
+            <button class="close">×</button>
+            <!-- [insert image here] -->
+            <h2>Renkli Rüyalar Oteli (Teoman, 2006)</h2>
+            <p>This song encapsulates the feeling of nostalgia perfectly for me. Teoman was a prominent artist in my childhood, and this song brings me back to my roots instantly.</p>
+            <a class="link" href="https://open.spotify.com/track/3ps9amJ8VfgTZcbrhtBd4o" target="_blank">Open link ↗</a>
+        </div>
+
+        <div class="card" id="book">
+            <p class="packed-in">Packed in: Main compartment</p>
+
+            <button class="close">×</button>
+            <!-- [insert image here] -->
+            <h2>The Subtle Art of Not Giving a F*ck (Mark Manson)</h2>
+            <p>A refreshing take on changing your mentality. It has helped me reframe my own perspective on challenges, and I keep returning to it for guidance and motivation.</p>
+        </div>
+ 
+        <div class="card" id="fortune">
+            <p class="packed-in">Packed in: Zip pocket</p>
+
+            <button class="close">×</button>
+            <!-- [insert image here] -->
+            <h2>Fortune cookie</h2>
+            <p>"Your life will be a road leading to success and joy." Found at a random Chinese restaurant on the way back from a long away game. It came at a really good time for me.</p>
+        </div>
+ 
+        <div class="card" id="soulages">
+            <p class="packed-in">Packed in: Padded divider</p>
+
+            <button class="close">×</button>
+            <!-- [insert image here] -->
+            <h2>Peinture, Pierre Soulages (20 mai 1959)</h2>
+            <p>Simple, with very few elements, yet Soulages uses the color palette and brush strokes so well to tell a deep and dark story. The general vibe of this painting speaks to me.</p>
+        </div>
+     </div>
 
     <script src="script.js"></script>
 </body>
