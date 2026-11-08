@@ -89,7 +89,7 @@ button {
 
 .tag {
     position: absolute;
-    top: 13%;
+    top: 42%;
     right: 11%;
     padding: 20px 16px;
     background: #f4eedf;
@@ -150,36 +150,34 @@ button {
     border: 20px solid #1e1e1e;
     border-radius: 32px;
     background: #d8e6f3;
-    padding: 16px 24px 24px;
+    padding: 24px;
     display: grid;
     gap: 16px;
+    min-height: 428px;
 }
 
 .lid {
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     margin-bottom: 20px;
-}
- 
-.lid .label {
-    grid-column: 1 / -1;
-    margin: 0;
 }
  
 /* grid of compartments: */
 .base {
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 2fr 1fr 1fr;
     grid-template-areas:
-        "main zip"
-        "main padded";
-    padding-top: 24px;
+        "main zip    side"
+        "main padded mesh";
 }
  
 .main-compartment { grid-area: main; }
 .zip-pocket       { grid-area: zip; }
 .padded-divider   { grid-area: padded; }
+.side-pocket      { grid-area: side; }
+.mesh-pocket      { grid-area: mesh; }
  
 .pocket, .main-compartment, .zip-pocket,
-.padded-divider {
+.padded-divider, .side-pocket, .mesh-pocket {
     border: 1px dashed #999;
     border-radius: 12px;
     padding: 12px;
@@ -190,18 +188,11 @@ button {
 }
  
 .pocket {
-    min-height: 200px;
+    min-height: 160px;
 }
  
 .main-compartment {
     min-height: 340px;
-}
- 
-.main-compartment .label,
-.zip-pocket .label,
-.padded-divider .label {
-    width: 100%;
-    align-self: flex-start;
 }
  
 /* packed items: */
