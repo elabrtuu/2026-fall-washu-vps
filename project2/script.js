@@ -9,11 +9,17 @@ latches.forEach(function (latch) {
     });
 });
 
-// clicking edge button closes it back up:
+// clicking edge button closes it back up (and re-buckles the straps, like repacking):
 let closeEdge = document.querySelector(".close-edge");
 
 closeEdge.addEventListener("click", function () {
     document.body.classList.remove("is-open");
+
+    straps.forEach(function (strap) {
+        strap.classList.remove("is-open");
+        strap.querySelector(".buckle").setAttribute("aria-pressed", "false");
+    });
+    updateBuckles();
 });
 
 
@@ -60,3 +66,69 @@ document.addEventListener("keydown", function (event) {
         closeCard();
     }
 });
+
+
+// buckles: both have to be undone before anything in the base can be reached:
+let base = document.querySelector(".base");
+let baseItems = base.querySelectorAll(".item");
+let straps = base.querySelectorAll(".strap");
+
+function bothUnbuckled() {
+    let openCount = base.querySelectorAll(".strap.is-open").length;
+    return openCount === straps.length;
+}
+
+function updateBuckles() {
+    let unlocked = bothUnbuckled();
+
+    base.classList.toggle("is-buckled", !unlocked);
+
+    baseItems.forEach(function (item) {
+        item.disabled = !unlocked;
+    });
+
+    packingNote.textContent = currentNote();
+}
+
+straps.forEach(function (strap) {
+    let buckle = strap.querySelector(".buckle");
+
+    buckle.addEventListener("click", function () {
+        strap.classList.toggle("is-open");
+        buckle.setAttribute("aria-pressed", strap.classList.contains("is-open"));
+        updateBuckles();
+    });
+});
+
+
+// reads each item's tag (its image alt text) on hover:
+let packingNote = document.querySelector(".packing-note");
+
+function currentNote() {
+    if (bothUnbuckled()) {
+        return "hover an item to read its tag";
+    }
+    return "undo both buckles to unpack the clothes";
+}
+
+items.forEach(function (item) {
+    let name = item.querySelector("img").alt;
+
+    function showTag() {
+        if (!item.disabled) {
+            packingNote.textContent = name;
+        }
+    }
+
+    function hideTag() {
+        packingNote.textContent = currentNote();
+    }
+
+    item.addEventListener("mouseenter", showTag);
+    item.addEventListener("focus", showTag);
+    item.addEventListener("mouseleave", hideTag);
+    item.addEventListener("blur", hideTag);
+});
+
+// start strapped down:
+updateBuckles();

@@ -23,16 +23,27 @@
             <button class="latch latch-left">latch</button>
             <button class="latch latch-right">latch</button>
 
-            <div class="tag">
-                <p>[insert shimmering point]</p>
-            </div>
+            <!-- luggage stickers: these go straight to the website, no card
+            same hand-placing as the items inside: --x, --y, --w, --r -->
+            <a class="sticker" href="https://strange-time.com/" target="_blank"
+               style="--x: 9%; --y: 24%; --w: 15%; --r: -8deg;">
+                <img src="img/stamp.png" alt="Strange Time website (opens in a new tab)">
+            </a>
 
-            <!-- luggage stickers -->
-            <a class="sticker">[insert shimmering point]</a>
-            <a class="sticker">[insert shimmering point]</a>
-            <a class="sticker">[insert shimmering point]</a>
-            <a class="sticker">[insert shimmering point]</a>
-            <a class="sticker">[insert shimmering point]</a>
+            <a class="sticker" href="https://yanxinzhang.com/" target="_blank"
+               style="--x: 54%; --y: 22%; --w: 30%; --r: -4deg;">
+                <img src="img/plane-sticker.png" alt="Yanxin Zhang's website (opens in a new tab)">
+            </a>
+
+            <a class="sticker" href="https://www.theneonnewt.com/" target="_blank"
+               style="--x: 31%; --y: 54%; --w: 16%; --r: 6deg;">
+                <img src="img/flower-sticker.png" alt="The Neon Newt website (opens in a new tab)">
+            </a>
+
+            <a class="sticker" href="https://www.xhulia.com/" target="_blank"
+               style="--x: 70%; --y: 58%; --w: 14%; --r: 12deg;">
+                <img src="img/exc-sticker.png" alt="Xhulia's website (opens in a new tab)">
+            </a>
         </div>
 
         <p class="hint">↑ click a latch to open the suitcase</p>
@@ -40,180 +51,244 @@
 
     <!-- OPEN SUITCASE -->
      <div id="open">
-        <button class="close-edge">↓ click an edge to close back up</button>
+        <button class="close-edge">↓ click the edge to close back up</button>
 
-        <!-- lid: -->
-        <div class="lid">
+        <div class="case">
 
-            <div class="pocket">
-                <button class="item" data-item="bitez">
-                    <!-- [insert image here] -->
-                    <p>Bitez postcard</p>
+            <!-- lid: flat things strapped in, small things zipped into the mesh pocket -->
+            <div class="lid">
+
+                <button class="item" data-item="fortune" style="--x: 7%; --y: 5%; --w: 28%; --r: -8deg;">
+                    <img src="img/note.png" alt="Torn paper with music notes">
+                </button>
+
+                <button class="item" data-item="book" style="--x: 38%; --y: 4%; --w: 26%; --r: 9deg;">
+                    <img src="img/book-orange.png" alt="Orange book">
+                </button>
+
+                <button class="item" data-item="barrio" style="--x: 61%; --y: 0%; --w: 30%; --r: -7deg;">
+                    <img src="img/book-glasses.png" alt="Open book with glasses">
+                </button>
+
+                <!-- mesh pocket = items sit behind the mesh-->
+                <button class="item" data-item="toiletry" style="--x: 8%; --y: 52%; --w: 32%; --r: 12deg;">
+                    <img src="img/toiletry-bag.png" alt="Toiletry bag">
+                </button>
+
+                <button class="item" data-item="whiplash" style="--x: 39%; --y: 64%; --w: 16%; --r: 18deg;">
+                    <img src="img/money.png" alt="Folded cash in a money clip">
+                </button>
+
+                <button class="item" data-item="bitez" style="--x: 57%; --y: 62%; --w: 24%; --r: -5deg;">
+                    <img src="img/camera.png" alt="Canon camera">
+                </button>
+
+                <button class="item" data-item="teoman" style="--x: 81%; --y: 54%; --w: 17%; --r: 14deg;">
+                    <img src="img/earbuds.png" alt="Tangled earbuds">
                 </button>
             </div>
 
-            <div class="pocket">
-                <button class="item" data-item="barrio">
-                    <!-- [insert image here] -->
-                    <p>Barrio menu (Zapfino)</p>
-                </button>
+            <!-- hinge: joins the lid and the base into one suitcase -->
+            <div class="hinge">
+                <span class="pin pin-left"></span>
+                <span class="pin pin-right"></span>
             </div>
 
-            <div class="pocket">
-                <button class="item" data-item="sf">
-                    <!-- [insert image here] -->
-                    <p>San Francisco font</p>
-                </button>
-            </div>
+            <!-- base: clothes folded in layers, strapped down until both buckles are undone -->
+            <div class="base is-buckled">
+                <div class="strap" style="--x: 34%;">
+                    <button class="buckle" aria-label="Left buckle" aria-pressed="false"></button>
+                </div>
+                <div class="strap" style="--x: 68%;">
+                    <button class="buckle" aria-label="Right buckle" aria-pressed="false"></button>
+                </div>
 
-            <div class="pocket">
-                <button class="item" data-item="hayat">
-                    <!-- [insert image here] -->
-                    <p>"Hayat Şaşırtır" lyric</p>
+                <button class="item" data-item="coffee" style="--x: -2%; --y: -4%; --w: 34%; --r: -4deg;">
+                    <img src="img/sweatshirt-green.png" alt="Green sweatshirt">
+                </button>
+
+                <button class="item" data-item="sf" style="--x: 22%; --y: -2%; --w: 30%; --r: 7deg;">
+                    <img src="img/shirt-striped.png" alt="Striped shirt">
+                </button>
+
+                <!-- jeans take up the bottom half, running off the edge -->
+                <button class="item" data-item="barrio-restaurant" style="--x: 0%; --y: 36%; --w: 40%; --r: -10deg;">
+                    <img src="img/jeans-af.png" alt="Folded light-wash jeans">
+                </button>
+
+                <button class="item" data-item="ellipsus" style="--x: 30%; --y: 38%; --w: 38%; --r: 5deg;">
+                    <img src="img/jeans-levis.png" alt="Folded dark-wash jeans">
+                </button>
+
+                <button class="item" data-item="soulages" style="--x: 68%; --y: 30%; --w: 20%; --r: -2deg;">
+                    <img src="img/sweater-stack.png" alt="Stack of folded sweaters">
+                </button>
+
+                <button class="item" data-item="hayat" style="--x: 76%; --y: 0%; --w: 22%; --r: -14deg;">
+                    <img src="img/headphones-pink.png" alt="Pink headphones">
+                </button>
+
+                <button class="item" data-item="goodflirts" style="--x: 50%; --y: 28%; --w: 18%; --r: -12deg;">
+                    <img src="img/cap-ny.png" alt="New York baseball cap">
+                </button>
+
+                <!-- tossed in its own gap at the top, only touching the shirt's edge -->
+                <button class="item" data-item="borek" style="--x: 53%; --y: 1%; --w: 17%; --r: 8deg;">
+                    <img src="img/teddy-bear.png" alt="Teddy bear">
+                </button>
+
+                <button class="item" data-item="parc" style="--x: 64%; --y: 56%; --w: 36%; --r: -6deg;">
+                    <img src="img/sneakers.png" alt="Sneakers">
                 </button>
             </div>
         </div>
 
-        <!-- base: -->
-        <div class="base">
-            <div class="main-compartment">
-
-                <button class="item" data-item="teoman">
-                    <!-- [insert image here] -->
-                    <p>Teoman - Headphones</p>
-                </button>
-
-                <button class="item" data-item="book">
-                    <!-- [insert image here] -->
-                    <p>The Subtle Art of Not Giving a F*ck (book)</p>
-                </button>
-            </div>
-
-            <div class="zip-pocket">
- 
-                <button class="item" data-item="fortune">
-                    <!-- [insert image here] -->
-                    <p>Fortune slip</p>
-                </button>
-            </div>
-
-            <div class="padded-divider">
- 
-                <button class="item" data-item="soulages">
-                    <!-- [insert image here] -->
-                    <p>Soulages print</p>
-                </button>
-            </div>
-
-            <div class="side-pocket">
-                <button class="item" data-item="yanxin">
-                    <!-- [insert image here] -->
-                    <p>Yanxin Zhang's website</p>
-                </button>
-            </div>
-
-            <div class="mesh-pocket">
-                <button class="item" data-item="neonnewt">
-                    <!-- [insert image here] -->
-                    <p>The Neon Newt website</p>
-                </button>
-            </div>
-        </div>
+        <!-- reads the tag of whatever item you hover -->
+        <p class="packing-note">hover an item to read its tag</p>
      </div>
 
     <!-- CONTAINER -->
      <div id="container">
-        <div class="card" id="bitez">
-            <p class="packed-in">Packed in: Lid pocket</p>
+
+        <!-- LID -->
+        <div class="card" id="fortune">
+            <p class="packed-in">Packed in: Lid · Paper scrap</p>
 
             <button class="close">×</button>
-            <!-- [insert image here] -->
-            <h2>Bitez, Bodrum</h2>
-            <p>Bitez is a small town in Bodrum, Turkey, and it might just be my favorite place in the world. It reminds me of my family and summertime, and it has a really special place in my heart.</p>
+            <img src="img/fortune-note.jpeg" alt="Fortune slip reading: Your life will be a road leading to success and joy">
+            <h2>Fortune cookie</h2>
+            <p>"Your life will be a road leading to success and joy." Found at a random Chinese restaurant on the way back from a long away game. It came at a really good time for me.</p>
+        </div>
+
+        <div class="card" id="book">
+            <p class="packed-in">Packed in: Lid · Orange book</p>
+
+            <button class="close">×</button>
+            <img src="img/book.jpeg" alt="Orange cover of The Subtle Art of Not Giving a F*ck by Mark Manson">
+            <h2>The Subtle Art of Not Giving a F*ck (Mark Manson)</h2>
+            <p>A refreshing take on changing your mentality. It has helped me reframe my own perspective on challenges, and I keep returning to it for guidance and motivation.</p>
         </div>
 
         <div class="card" id="barrio">
-            <p class="packed-in">Packed in: Lid pocket</p>
+            <p class="packed-in">Packed in: Lid · Open book</p>
 
             <button class="close">×</button>
-            <!-- [insert image here] -->
+            <img src="img/zapfino.jpeg" alt="Zapfino type specimen showing the full alphabet and numbers">
             <h2>Zapfino, the scrapped Barrio menu font</h2>
             <p>This font represents the splash of experimentation and creativity that I want to bring to my design work. I was really drawn to it when I was designing the Barrio menu.</p>
         </div>
 
-        <div class="card" id="teoman">
-            <p class="packed-in">Packed in: Main compartment</p>
+        <div class="card" id="bitez">
+            <p class="packed-in">Packed in: Lid mesh pocket · Camera</p>
 
             <button class="close">×</button>
-            <!-- [insert image here] -->
+            <img src="img/bodrum.jpeg" alt="Bitez, Bodrum">
+            <h2>Bitez, Bodrum</h2>
+            <p>Bitez is a small town in Bodrum, Turkey, and it might just be my favorite place in the world. It reminds me of my family and summertime, and it has a really special place in my heart.</p>
+        </div>
+
+        <!-- BASE -->
+        <div class="card" id="sf">
+            <p class="packed-in">Packed in: Main compartment · Striped shirt</p>
+
+            <button class="close">×</button>
+            <img src="img/sf-font.jpeg" alt="San Francisco font weights from Ultralight to Black">
+            <h2>San Francisco (SF), the Apple system-ui font</h2>
+            <p>AKA this font. It's so clean and put together, it brings a sense of calm and order to my work. I've used it for most of my projects so far.</p>
+        </div>
+
+        <div class="card" id="soulages">
+            <p class="packed-in">Packed in: Main compartment · Sweater stack</p>
+
+            <button class="close">×</button>
+            <img src="img/peinture.jpeg" alt="Peinture by Pierre Soulages, 20 mai 1959">
+            <h2>Peinture, Pierre Soulages (20 mai 1959)</h2>
+            <p>Simple, with very few elements, yet Soulages uses the color palette and brush strokes so well to tell a deep and dark story. The general vibe of this painting speaks to me.</p>
+        </div>
+
+        <div class="card" id="teoman">
+            <p class="packed-in">Packed in: Lid mesh pocket · Earbuds</p>
+
+            <button class="close">×</button>
             <h2>Renkli Rüyalar Oteli (Teoman, 2006)</h2>
             <p>This song encapsulates the feeling of nostalgia perfectly for me. Teoman was a prominent artist in my childhood, and this song brings me back to my roots instantly.</p>
             <a class="link" href="https://open.spotify.com/track/3ps9amJ8VfgTZcbrhtBd4o" target="_blank">Open link ↗</a>
         </div>
 
-        <div class="card" id="book">
-            <p class="packed-in">Packed in: Main compartment</p>
-
-            <button class="close">×</button>
-            <!-- [insert image here] -->
-            <h2>The Subtle Art of Not Giving a F*ck (Mark Manson)</h2>
-            <p>A refreshing take on changing your mentality. It has helped me reframe my own perspective on challenges, and I keep returning to it for guidance and motivation.</p>
-        </div>
- 
-        <div class="card" id="fortune">
-            <p class="packed-in">Packed in: Zip pocket</p>
-
-            <button class="close">×</button>
-            <!-- [insert image here] -->
-            <h2>Fortune cookie</h2>
-            <p>"Your life will be a road leading to success and joy." Found at a random Chinese restaurant on the way back from a long away game. It came at a really good time for me.</p>
-        </div>
- 
-        <div class="card" id="soulages">
-            <p class="packed-in">Packed in: Padded divider</p>
-
-            <button class="close">×</button>
-            <!-- [insert image here] -->
-            <h2>Peinture, Pierre Soulages (20 mai 1959)</h2>
-            <p>Simple, with very few elements, yet Soulages uses the color palette and brush strokes so well to tell a deep and dark story. The general vibe of this painting speaks to me.</p>
-        </div>
-
-        <div class="card" id="sf">
-            <p class="packed-in">Packed in: Lid pocket</p>
-
-            <button class="close">×</button>
-            <!-- [insert image here] -->
-            <h2>San Francisco (SF), the Apple system-ui font</h2>
-            <p>AKA this font. It's so clean and put together, it brings a sense of calm and order to my work. I've used it for most of my projects so far.</p>
-        </div>
-
         <div class="card" id="hayat">
-            <p class="packed-in">Packed in: Lid pocket</p>
+            <p class="packed-in">Packed in: Main compartment · Pink headphones</p>
 
             <button class="close">×</button>
-            <!-- [insert image here] -->
             <h2>"Hayat Şaşırtır (hep zaten!)"</h2>
             <p>A line from a Turkish song I've heard throughout my life. It means "life will surprise you all the time!" A good reminder to not take life too seriously, and to be open to the unexpected.</p>
         </div>
 
-        <div class="card" id="yanxin">
-            <p class="packed-in">Packed in: Side pocket</p>
+        <div class="card" id="ellipsus">
+            <p class="packed-in">Packed in: Main compartment · Dark-wash jeans</p>
 
             <button class="close">×</button>
-            <!-- [insert image here] -->
-            <h2>Yanxin Zhang's website</h2>
-            <p>Might just be my favorite website I've ever seen. I come back to it to remind myself that I can add more playfulness and creativity to my work without taking away its functionality.</p>
-            <a class="link" href="https://yanxinzhang.com/" target="_blank">Open link ↗</a>
+            <h2>Ellipsus website</h2>
+            <p>This website captures the elegance and class that Ellipsus is going for as a brand. It shines a light on the products in a way that's both visually appealing and effective: a clean, simple design with intentional choices that lure you in.</p>
+            <a class="link" href="https://ellipsus.com/#introduction" target="_blank">Open link ↗</a>
         </div>
 
-        <div class="card" id="neonnewt">
-            <p class="packed-in">Packed in: Mesh pocket</p>
+        <div class="card" id="whiplash">
+            <p class="packed-in">Packed in: Lid mesh pocket · Cash</p>
 
             <button class="close">×</button>
-            <!-- [insert image here] -->
-            <h2>The Neon Newt (NYC) website</h2>
-            <p>Simple, refreshing, aesthetically pleasing, and it does the job. This clean and quirky look is what I think about when I think about the kind of design work I want to do.</p>
-            <a class="link" href="https://www.theneonnewt.com/" target="_blank">Open link ↗</a>
+            <h2>Whiplash (2014)</h2>
+            <p>Such an interesting take on life. The mentality in this movie serves as my currency, kind of: it's what I spend when I need to push myself.</p>
+        </div>
+
+        <div class="card" id="coffee">
+            <p class="packed-in">Packed in: Main compartment · Green sweatshirt</p>
+
+            <button class="close">×</button>
+            <img src="img/coffee.jpeg" alt="Empty Turkish coffee cup with grounds left inside">
+            <h2>Turkish coffee</h2>
+            <p>A small cup with a whole ritual around it. It brings everyone to the table, and it reminds me to slow down and actually enjoy the moment.</p>
+        </div>
+
+        <div class="card" id="barrio-restaurant">
+            <p class="packed-in">Packed in: Main compartment · Light-wash jeans</p>
+
+            <button class="close">×</button>
+            <h2>Barrio, on DeMun (St. Louis)</h2>
+            <p>A cozy little spot that feels like a hidden gem in St. Louis. Its warm, lively atmosphere is what I wanted to capture when I was working on its menu.</p>
+        </div>
+
+        <div class="card" id="goodflirts">
+            <p class="packed-in">Packed in: Main compartment · NY cap</p>
+
+            <button class="close">×</button>
+            <h2>Good Flirts (Baby Keem &amp; Kendrick Lamar)</h2>
+            <p>This song was on repeat when it first came out, and now I associate it with a specific time in my life. I can't help but replay it, and everytime I play it, I'm transported back to that moment.</p>
+            <a class="link" href="https://open.spotify.com/track/5KWWsr3fNoYdP2s9o9ycbD?si=4d522a11e13c4398" target="_blank">Open link ↗</a>
+        </div>
+
+        <div class="card" id="borek">
+            <p class="packed-in">Packed in: Main compartment · Teddy bear</p>
+
+            <button class="close">×</button>
+            <h2>Turkish böreks</h2>
+            <p>My favorite food, and the taste of home. Like the teddy bear, it's the comfort I'd always pack.</p>
+        </div>
+
+        <div class="card" id="parc">
+            <p class="packed-in">Packed in: Main compartment · Sneakers</p>
+
+            <button class="close">×</button>
+            <img src="img/parc.jpeg" alt="String lights over the lakeside at Parc La Grange in Geneva at dusk">
+            <h2>Parc La Grange, Geneva</h2>
+            <p>This is the place that grounds me, like the shoes I walk it in.</p>
+        </div>
+
+        <div class="card" id="reflecting">
+            <p class="packed-in">Packed in: Lid mesh pocket · Toiletry bag</p>
+ 
+            <button class="close">×</button>
+            <h2>Yay! You found the final shimmering point!</h2>
+            <p> Here's a brief summary of everything: Some themes that kept coming up throughout everything I packed are reflection and my general outlook on life, while also being straight to the point and not doing too much. It's a good representation of my personal outlook on life and the kind of things that inspire me.</p>
         </div>
      </div>
 

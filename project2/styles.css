@@ -47,7 +47,7 @@ button {
 .shell {
     position: relative;
     width: 100%;
-    max-width: 640px;
+    max-width: 560px;
     aspect-ratio: 640 / 420;
     background: #1e1e1e;
     border-radius: 24px;
@@ -62,7 +62,7 @@ button {
     height: 2px;
     background: #555;
 }
- 
+
 .latch {
     position: absolute;
     top: 9%;
@@ -72,7 +72,7 @@ button {
     border-radius: 4px;
 
     background: #ccc;
-    color: transparent; 
+    color: transparent;
 }
 
 .latch:hover {
@@ -82,42 +82,38 @@ button {
 .latch-left {
     left: 19%;
 }
- 
+
 .latch-right {
     right: 19%;
 }
 
-.tag {
-    position: absolute;
-    top: 42%;
-    right: 11%;
-    padding: 20px 16px;
-    background: #f4eedf;
-    border-radius: 6px;
-
-    transform: rotate(6deg);
-}
-
-.tag p {
-    margin: 0;
-    font-size: 18px;
-}
-
+/* stickers on the outside of the case */
 .sticker {
     position: absolute;
-    padding: 8px 14px;
-    background: #fff;
-    border-radius: 999px;
-    font-size: 12px;
-    color: #1e1e1e;
-    text-decoration: none;
-}
- 
-.sticker:hover {
-    background: #f4eedf;
+    left: var(--x);
+    top: var(--y);
+    width: var(--w);
+    transform: rotate(var(--r));
+    transition: transform 0.2s;
 }
 
-/* maybe add animations here? */
+.sticker img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* corner peels up a little when you reach for it */
+.sticker:hover,
+.sticker:focus-visible {
+    z-index: 5;
+    transform: translateY(-4px) rotate(calc(var(--r) + 3deg)) scale(1.06);
+}
+
+.sticker:focus-visible {
+    outline: 2px dashed #f4eedf;
+    outline-offset: 4px;
+}
 
 .hint {
     margin-top: 24px;
@@ -126,11 +122,21 @@ button {
 }
 
 /* open suitcase: */
+/* open suitcase sits in the middle of the screen, like the closed one */
 #open {
     display: none;
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 24px 16px;
+    min-height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+}
+
+/* sized so the whole open case (lid + base) fits on screen with room to spare:
+   never wider than 600px, and shrinks on short screens */
+.case {
+    width: min(100%, 600px, calc((100vh - 150px) * 0.78));
+    width: min(100%, 600px, calc((100svh - 150px) * 0.78));
 }
 
 .close-edge {
@@ -146,104 +152,217 @@ button {
     color: #1e1e1e;
 }
 
+/* the two halves: items are placed inside by hand (position: absolute) */
 .lid, .base {
-    border: 20px solid #1e1e1e;
-    border-radius: 32px;
+    position: relative;
+    aspect-ratio: 16 / 10;
+    border: 16px solid #1e1e1e;
     background: #d8e6f3;
-    padding: 24px;
-    display: grid;
-    gap: 16px;
-    min-height: 428px;
+    overflow: hidden; /* anything hanging over the edge gets tucked in */
 }
 
+/* rounded on the outside, squared off where the two halves meet */
 .lid {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    margin-bottom: 20px;
+    border-radius: 32px 32px 8px 8px;
+    border-bottom-width: 10px;
 }
- 
-/* grid of compartments: */
+
 .base {
-    grid-template-columns: 2fr 1fr 1fr;
-    grid-template-areas:
-        "main zip    side"
-        "main padded mesh";
+    border-radius: 8px 8px 32px 32px;
+    border-top-width: 10px;
 }
- 
-.main-compartment { grid-area: main; }
-.zip-pocket       { grid-area: zip; }
-.padded-divider   { grid-area: padded; }
-.side-pocket      { grid-area: side; }
-.mesh-pocket      { grid-area: mesh; }
- 
-.pocket, .main-compartment, .zip-pocket,
-.padded-divider, .side-pocket, .mesh-pocket {
-    border: 1px dashed #999;
-    border-radius: 12px;
-    padding: 12px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-around;
+
+/* hinge: the fabric strip that joins lid + base, with a zipper running along it */
+.hinge {
+    position: relative;
+    z-index: 30;
+    height: 16px;
+    margin: 0 14px;
+    background: #2e2e2e;
 }
- 
-.pocket {
-    min-height: 160px;
-}
- 
-.main-compartment {
-    min-height: 340px;
-}
- 
-/* packed items: */
-.item {
-    border: none;
-    background: none;
-    padding: 8px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: transform 0.15s;
-}
- 
-.item:hover {
-    transform: translateY(-4px) rotate(-2deg);
-}
- 
-.item img {
-    width: 120px;
-    height: 90px;
-    object-fit: contain;
-}
- 
-/* PLACEHOLDER */
-.item:not(:has(img))::before {
+
+.hinge::before {
     content: "";
-    width: 86px;
-    height: 64px;
-    border: 1px dashed #999;
-    border-radius: 6px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    border-top: 2px dashed #777;
+}
+
+.pin {
+    position: absolute;
+    top: -8px;
+    width: 46px;
+    height: 32px;
+    background: #ccc;
+    border-radius: 4px;
+}
+
+.pin-left {
+    left: 14%;
+}
+
+.pin-right {
+    right: 14%;
+}
+
+/* mesh pocket across the bottom of the lid, zipper along the top edge */
+.lid::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 44%;
+    border-top: 5px dashed #1e1e1e;
+    background:
+        repeating-linear-gradient(45deg, rgba(30, 30, 30, 0.12) 0 1px, transparent 1px 7px),
+        repeating-linear-gradient(-45deg, rgba(30, 30, 30, 0.12) 0 1px, transparent 1px 7px),
+        rgba(216, 230, 243, 0.35);
+    pointer-events: none; /* lets clicks pass through to the items behind */
+    z-index: 10;
+}
+
+/* elastic straps across the clothes */
+.strap {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: var(--x);
+    width: 12px;
+    background: #1e1e1e;
+    opacity: 0.9;
+    pointer-events: none; /* only the buckle is clickable */
+    z-index: 10;
+    transition: opacity 0.3s;
+}
+
+/* buckle (a button) */
+.buckle {
+    position: absolute;
+    top: 46%;
+    left: 50%;
+    width: 30px;
+    height: 36px;
+    margin-left: -15px;
+    padding: 0;
+    border: 4px solid #ccc;
+    border-radius: 4px;
+    background: #1e1e1e;
+    pointer-events: auto;
+    transition: transform 0.25s, border-color 0.2s;
+}
+
+/* the prong in the middle */
+.buckle::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 3px;
+    bottom: 3px;
+    width: 3px;
+    margin-left: -1.5px;
     background: #ccc;
 }
- 
-.item p {
-    margin: 10px 0 0;
-    font-size: 13px;
+
+.buckle:hover,
+.buckle:focus-visible {
+    border-color: #fff;
 }
- 
- 
+
+.buckle:focus-visible {
+    outline: 2px dashed #1e1e1e;
+    outline-offset: 3px;
+}
+
+/* still-done-up buckles nudge to say "click me" */
+.strap:not(.is-open) .buckle {
+    animation: nudge 1.6s ease-in-out infinite;
+}
+
+@keyframes nudge {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-3px); }
+}
+
+/* unbuckled: strap splits at the buckle and goes slack */
+.strap.is-open {
+    background: linear-gradient(#1e1e1e 0 40%, transparent 40% 60%, #1e1e1e 60%);
+    opacity: 0.45;
+}
+
+.strap.is-open .buckle {
+    transform: translateY(-22px) rotate(-25deg);
+}
+
+/* packed items: */
+.item {
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    width: var(--w);
+    z-index: 1;
+    padding: 0;
+    border: none;
+    background: none;
+    transform: rotate(var(--r));
+    transition: transform 0.2s;
+
+    /* makes white image backgrounds disappear into the suitcase lining */
+    mix-blend-mode: multiply;
+}
+
+/* multiply makes overlapping items slightly see-through.
+   for an image with a TRANSPARENT background (no white), add class="item solid" so it sits fully on top */
+.item.solid {
+    mix-blend-mode: normal;
+}
+
+.item img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* lift an item out of the case when you reach for it */
+.item:not(:disabled):hover,
+.item:not(:disabled):focus-visible {
+    z-index: 20; /* pops above the mesh + straps */
+    transform: translateY(-6px) rotate(calc(var(--r) - 3deg)) scale(1.05);
+}
+
+.item:focus-visible {
+    outline: 2px dashed #1e1e1e;
+    outline-offset: 4px;
+}
+
+/* strapped down = can't be reached yet */
+.item:disabled {
+    cursor: default;
+}
+
+.packing-note {
+    margin: 12px 0 0;
+    text-align: center;
+    font-size: 13px;
+    color: #666;
+}
+
+
 /* container: */
- 
+
 #container {
     display: none;
     position: fixed;
     inset: 0;
+    z-index: 100;
     background: rgba(0, 0, 0, 0.5);
     align-items: center;
     justify-content: center;
     padding: 16px;
 }
- 
+
 .card {
     display: none;
     position: relative;
@@ -255,7 +374,7 @@ button {
     border-radius: 20px;
     padding: 28px 32px 32px;
 }
- 
+
 .packed-in {
     margin: 0 0 16px;
     font-size: 11px;
@@ -263,7 +382,7 @@ button {
     text-transform: uppercase;
     color: #666;
 }
- 
+
 .close {
     position: absolute;
     top: 20px;
@@ -273,24 +392,26 @@ button {
     font-size: 24px;
     line-height: 1;
 }
- 
+
+/* shows the whole image (no cropping), so paintings + notes stay intact */
 .card img {
+    display: block;
     width: 100%;
-    height: 260px;
-    object-fit: cover;
+    max-height: 300px;
+    object-fit: contain;
     border-radius: 8px;
 }
- 
+
 .card h2 {
     margin: 16px 0 12px;
     font-size: 26px;
     font-weight: 600;
 }
- 
+
 .card p {
     line-height: 1.4;
 }
- 
+
 .link {
     display: inline-block;
     margin-top: 4px;
@@ -302,26 +423,73 @@ button {
     font-weight: 600;
     text-decoration: none;
 }
- 
- 
+
+
 /* states for js: */
- 
+
 body.is-open #closed {
     display: none;
 }
- 
+
 body.is-open #open {
-    display: block;
+    display: flex;
 }
- 
+
 body.showing-card #container {
     display: flex;
 }
- 
+
 .card.is-active {
     display: block;
 }
- 
- 
-/* add media queries! */
 
+
+/* no bouncing for people who turn motion off */
+@media (prefers-reduced-motion: reduce) {
+    .strap:not(.is-open) .buckle {
+        animation: none;
+    }
+}
+
+/* smaller screens: thinner shell so the items get more room */
+@media (max-width: 600px) {
+    .lid, .base {
+        border-width: 10px;
+    }
+
+    .lid {
+        border-radius: 20px 20px 6px 6px;
+        border-bottom-width: 6px;
+    }
+
+    .base {
+        border-radius: 6px 6px 20px 20px;
+        border-top-width: 6px;
+    }
+
+    .hinge {
+        height: 10px;
+        margin: 0 8px;
+    }
+
+    .pin {
+        top: -5px;
+        width: 28px;
+        height: 20px;
+    }
+
+    .strap {
+        width: 6px;
+    }
+
+    .buckle {
+        width: 22px;
+        height: 26px;
+        margin-left: -11px;
+        border-width: 3px;
+    }
+
+    .card {
+        padding: 24px 20px 24px;
+    }
+}
